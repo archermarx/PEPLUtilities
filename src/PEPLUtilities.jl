@@ -1,5 +1,7 @@
 module PEPLUtilities
-using Unitful, PhysicalConstants.CODATA2018
+using Unitful, PhysicalConstants
+
+const k_B = PhysicalConstants.CODATA2018.k_B
 
 export @Te_func
 
@@ -20,9 +22,11 @@ end
 
 macro Te_func(fndef)
     fnname = fndef.args[1].args[1]
+    @show fnname
+    var = gensym()
     esc(quote
         $fndef;
-        $(fnname)(x::Unitful.Temperature) = $(fnname)($(PhysicalConstants.CODATA2018.k_B) * x)
+        $(fnname)($(var)::Unitful.Temperature) = $(fnname)($(k_B) * $(var))
     end)
 end
 
