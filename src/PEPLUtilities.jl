@@ -13,7 +13,6 @@ const XENON_DENSITY_STP     = 5.894u"kg/m^3"
 @unit sccmAr    "sccmAr"    STPCubicCmPerMinuteAr   1u"cm^3/minute" * ARGON_DENSITY_STP     true
 @unit sccmKr    "sccmKr"    STPCubicCmPerMinuteKr   1u"cm^3/minute" * KRYPTON_DENSITY_STP   true
 @unit sccmXe    "sccmXe"    STPCubicCmPerMinuteXe   1u"cm^3/minute" * XENON_DENSITY_STP     true
-@unit Gauss     "Gauss"     Gauss                   (1e-4)u"T"                              true
 
 function __init__()
     Unitful.register(PEPLUtilities)
